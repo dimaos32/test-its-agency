@@ -1,0 +1,54 @@
+mixin main-nav
+
+  -
+    const navLinks = [
+      {
+        href: "#",
+        text: "Продукты"
+      },
+      {
+        href: "#",
+        text: "Цвета"
+      },
+      {
+        href: "#",
+        text: "Вдохновение"
+      },
+      {
+        href: "#",
+        text: "Советы"
+      },
+      {
+        href: "#",
+        text: "Найти магазин"
+      },
+    ]
+  - const phoneLink = { href: "tel:+74952217769", text: "+7 (495) 221-77-69" }
+  -
+    const userActions = [
+      { iconBefore: ["icon-search", 20, 20], mods: "icon" },
+      { iconBefore: ["icon-profile", 22, 22], mods: "icon" },
+      { iconBefore: ["icon-heart", 22, 22], mods: "icon" },
+    ]
+
+  nav.main-nav&attributes(attributes)
+    +btn({ mods: "icon" }).main-nav__open-menu-btn
+    .main-nav__overlay
+    .main-nav__wrapper
+      +btn({ mods: "icon" }).close-btn.main-nav__close-menu-btn
+      ul.main-nav__list
+        each link in navLinks
+          - const activeState = currentUrl === link.href
+          li.main-nav__item
+            if(activeState)
+              span.main-nav__link.is-active= link.text
+            else
+              +link(link).main-nav__link
+      .main-nav__phone
+        +link(phoneLink).main-nav__phone-link
+        p.main-nav__phone-descr Заказать звонок
+      .main-nav__user-menu
+        ul.main-nav__user-action-list
+          each item in userActions
+            li.main-nav__user-action-item
+              +btn(item).main-nav__user-action-btn

@@ -1,0 +1,43 @@
+.close-btn {
+  position: relative;
+
+  width: 48px;
+  height: 48px;
+
+  background-color: $color-transparent;
+  border: 1px solid $color-whisper;
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 24px;
+    height: 2px;
+
+    background-color: $color-swamp;
+
+    transition:
+      background-color $trans-default,
+      box-shadow $trans-default;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  @include hover-focus {
+
+    &::before,
+    &::after {
+      background-color: $color-padua;
+    }
+  }
+}

@@ -1,14 +1,26 @@
 .btn {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 240px;
+  min-height: 56px;
   padding: 10px 20px;
 
-  color: $color-default-white;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-swamp;
 
-  background-color: blue;
+  background-color: $color-padua;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
 
-  transition: opacity $trans-default;
+  transition:
+    color $trans-default,
+    background-color $trans-default;
 
   &:disabled {
     opacity: 0.5;
@@ -17,6 +29,78 @@
   }
 
   @include hover-focus {
-    opacity: 0.8;
+    color: $color-default-white;
+
+    background-color: $color-swamp;
+  }
+
+  &--icon {
+    width: 38px;
+    min-width: unset;
+    height: 38px;
+    min-height: unset;
+    padding: 4px;
+
+    color: $color-swamp;
+
+    background-color: $color-transparent;
+
+    svg {
+      max-width: 30px;
+      max-height: 30px;
+    }
+
+    @include hover-focus {
+      color: $color-padua;
+
+      background-color: $color-transparent;
+    }
+  }
+
+  &--icon-cart {
+    width: 38px;
+    min-width: unset;
+    height: 38px;
+    min-height: unset;
+    padding: 0;
+
+    color: $color-swamp;
+
+    background-color: $color-transparent;
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 24px;
+      width: max-content;
+      height: 24px;
+      padding: 2px 4px;
+
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1;
+      letter-spacing: 0.06em;
+      color: $color-swamp;
+
+      background-color: $color-padua;
+      border-radius: 12px;
+
+      transition:
+        color $trans-default,
+        background-color $trans-default;
+    }
+
+    @include hover-focus {
+      color: $color-swamp;
+
+      background-color: $color-transparent;
+
+      span {
+        color: $color-default-white;
+
+        background-color: $color-swamp;
+      }
+    }
   }
 }

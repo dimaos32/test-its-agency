@@ -1,13 +1,59 @@
 .header {
-  padding: 28px 0;
+  background-color: $color-default-white;
+}
 
-  background-color: blue;
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-  .container {
-    display: flex;
+  padding: 36px 0;
+
+  @include vp-1439 {
+    gap: 4px;
   }
 
-  &__logo {
-    color: $color-default-white;
+  @include vp-1023 {
+    justify-content: space-between;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid $color-white-smoke;
   }
+}
+
+.header__logo {
+  flex-shrink: 0;
+}
+
+.header__logo-img {
+  width: 131px;
+  height: 26px;
+
+  @include vp-374 {
+    width: 99px;
+    height: 21px;
+  }
+}
+
+.header__main-nav {
+  flex-grow: 1;
+  margin-left: 164px;
+
+  @include vp-1919 {
+    margin-left: 128px;
+  }
+
+  @include vp-1439 {
+    margin-left: 64px;
+  }
+
+  @include vp-1023 {
+    flex-grow: 0;
+    margin-left: -8px;
+  }
+}
+
+.header__cart-btn {
+  margin-right: -8px;
 }

@@ -1,4 +1,5 @@
 import { mobileVhFix } from './utils/mobile-vh-fix.js';
+import { initMenu } from './modules/init-menu.js';
 import { initModals } from './modules/modals/init-modals';
 
 // ---------------------------------
@@ -9,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   mobileVhFix();
+  initMenu();
 
   // Modules
   // ---------------------------------

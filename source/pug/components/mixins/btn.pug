@@ -1,9 +1,23 @@
 mixin btn(options = {})
   - const tag = options.href ? "a" : "button";
+  -
+    const mods = options.mods
+      ? options.mods.split(' ').map((mod) => `btn--${mod}`).join(' ')
+      : ''
   - const href = options.href || false;
   - const text = options.text || "";
+  - const iconBefore = options.iconBefore || false;
+  - const iconAfter = options.iconAfter || false;
   - const type = options.type || tag === "button" ? options.type || "button" : false;
   - const target = options.isExternal ? "_blank" : false;
   - const rel = options.isExternal ? "nofollow noopener noreferrer" : false;
 
-  #{tag}.btn(href=href, target=target, rel=rel, type=type)&attributes(attributes)!= text
+  #{tag}.btn(class= mods, href=href, target=target, rel=rel, type=type)&attributes(attributes)
+    if iconBefore
+      +icon(...iconBefore)
+    if block
+      block
+    else if text
+      != text
+    if iconAfter
+      +icon(...iconAfter)

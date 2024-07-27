@@ -29,6 +29,7 @@ html {
 
 body {
   width: 100%;
+  min-width: 320px;
   height: 100%;
 
   background-color: $color-default-white;
@@ -37,6 +38,12 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+
+  transition: color $trans-default;
+
+  @include hover-focus {
+    color: $color-padua;
+  }
 }
 
 img,
