@@ -16,7 +16,7 @@ html {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.12;
-  font-family: $ff-primary ;
+  font-family: $ff-primary;
   color: $color-swamp;
 
   -webkit-font-smoothing: antialiased;
@@ -89,6 +89,7 @@ select {
 
 // ie11 X removal
 input {
+  /* stylelint-disable-next-line */
 
   &::-ms-clear,
   &::-ms-reveal {

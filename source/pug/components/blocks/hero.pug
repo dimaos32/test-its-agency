@@ -13,11 +13,11 @@ mixin hero()
               .hero__slide-container.container
                 .hero__slide-inner
                   if title
-                    h2.hero__slide-title=title
+                    h2.hero__slide-title= title
                   if descr
                     .hero__slide-descr
                       each paragraph in descr
-                        p.hero__slide-paragraph=descr
+                        p.hero__slide-paragraph= descr
       .hero__slides-btns
         +btn({ iconBefore: ["arrow-chevron-right", 20, 40], mods: "icon" }).slider-btn.slider-btn--prev
         +btn({ iconBefore: ["arrow-chevron-right", 20, 40], mods: "icon" }).slider-btn.slider-btn--next

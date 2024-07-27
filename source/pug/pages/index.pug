@@ -8,11 +8,26 @@ block variables
   - const hasFooter = true
   - const footerMods = ""
   - const currentUrl = "index.html"
+  -
+    const breadcrumbs = {
+      parents: [
+        {
+          text: "Главная",
+          href: "index.html",
+        },
+        {
+          text: "Продукты",
+          href: "#",
+        },
+      ],
+      currentPage: "Краски",
+    }
 
 block main
   main
     //- на странице запрещен "голый" код
     //- все блоки вставляются из папки pug/components/blocks
+    +breadcrumbs().breadcrumbs--on-hero
     +hero()
 
 block modals

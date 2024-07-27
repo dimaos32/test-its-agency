@@ -1,3 +1,9 @@
+.hero {
+  @include vp-767 {
+    display: none;
+  }
+}
+
 .hero__slides {
   position: relative;
 }
@@ -25,10 +31,6 @@
 
   @include vp-1023 {
     --min-height: 270px;
-  }
-
-  @include vp-767 {
-    display: none;
   }
 }
 

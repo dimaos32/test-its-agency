@@ -1,0 +1,13 @@
+mixin breadcrumbs()
+
+  - const { parents, currentPage } = breadcrumbs
+
+  section.breadcrumbs&attributes(attributes)
+    .container
+      ul.breadcrumbs__list
+        if breadcrumbs.parents
+          each parent in parents
+            li.breadcrumbs__item
+              +link(parent).breadcrumbs__link
+        li.breadcrumbs__item
+          span.breadcrumbs__current-page= currentPage
