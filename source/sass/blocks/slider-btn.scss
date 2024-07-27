@@ -1,0 +1,23 @@
+.slider-btn {
+  width: 80px;
+  height: 80px;
+
+  svg {
+    width: 20px;
+    height: 40px;
+  }
+
+  &--prev {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:disabled {
+    display: none;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}

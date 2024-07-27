@@ -1,0 +1,24 @@
+include ../../data/hero-slides
+
+mixin hero()
+
+  section.hero
+    .hero__slides
+      .hero__slides-inner.swiper
+        ul.hero__slide-list.swiper-wrapper
+          each slide in heroSlides
+            - const { cover, title, descr } = slide
+            li.hero__slide-item.swiper-slide
+              +img(...cover).hero__slide-cover
+              .hero__slide-container.container
+                .hero__slide-inner
+                  if title
+                    h2.hero__slide-title=title
+                  if descr
+                    .hero__slide-descr
+                      each paragraph in descr
+                        p.hero__slide-paragraph=descr
+      .hero__slides-btns
+        +btn({ iconBefore: ["arrow-chevron-right", 20, 40], mods: "icon" }).slider-btn.slider-btn--prev
+        +btn({ iconBefore: ["arrow-chevron-right", 20, 40], mods: "icon" }).slider-btn.slider-btn--next
+      .hero__slides-pagination

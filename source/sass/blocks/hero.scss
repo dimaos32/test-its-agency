@@ -1,0 +1,156 @@
+.hero__slides {
+  position: relative;
+}
+
+.hero__slide-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.hero__slide-item {
+  --min-height: 560px;
+  position: relative;
+
+  height: unset;
+  min-height: var(--min-height);
+
+  text-align: center;
+  color: $color-default-white;
+
+  @include vp-1439 {
+    --min-height: 400px;
+  }
+
+  @include vp-1023 {
+    --min-height: 270px;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.hero__slide-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.hero__slide-container {
+  display: flex;
+  align-items: center;
+  min-height: var(--min-height);
+}
+
+.hero__slide-inner {
+  position: relative;
+  z-index: 3;
+
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 92px 80px;
+}
+
+.hero__slide-title {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.hero__slide-paragraph {
+  margin: 0;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.hero__slides-btns {
+  position: absolute;
+  left: 50%;
+  bottom: 145px;
+  transform: translateX(-50%);
+  z-index: 20;
+
+  display: flex;
+  width: 1120px;
+  max-width: 100%;
+
+  .slider-btn {
+    color: $color-default-white;
+
+    &--prev {
+      margin-right: auto;
+    }
+
+    &--next {
+      margin-left: auto;
+    }
+
+    @include hover-focus {
+      color: $color-swamp;
+    }
+  }
+
+  @include vp-1439 {
+    bottom: 95px;
+  }
+
+  @include vp-1023 {
+    bottom: 70px;
+  }
+}
+
+.hero__slides-pagination.swiper-pagination-bullets {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  z-index: 4;
+
+  display: flex;
+  gap: 8px;
+  width: unset;
+  padding: 13px 24px;
+
+  background-color: rgba($color-default-black, 0.4);
+  border-radius: 16px;
+}
+
+.hero__slides-pagination-bullet {
+  width: 6px;
+  height: 6px;
+
+  background-color: $color-default-white;
+  border-radius: 50%;
+
+  opacity: 0.2;
+
+  cursor: pointer;
+
+  transition: opacity $trans-default;
+
+  &.is-active {
+    opacity: 1;
+  }
+}

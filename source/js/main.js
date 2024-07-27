@@ -1,6 +1,7 @@
-import { mobileVhFix } from './utils/mobile-vh-fix.js';
-import { initMenu } from './modules/init-menu.js';
+import { mobileVhFix } from './utils/mobile-vh-fix';
+import { initMenu } from './modules/init-menu';
 import { initModals } from './modules/modals/init-modals';
+import { initHeroSlider } from './modules/hero-slider';
 
 // ---------------------------------
 
@@ -11,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   mobileVhFix();
   initMenu();
+  initHeroSlider();
 
   // Modules
   // ---------------------------------
