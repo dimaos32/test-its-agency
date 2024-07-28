@@ -5,6 +5,7 @@ import { initHeroSlider } from './modules/hero-slider';
 import { initModals } from './modules/modals/init-modals';
 import { initFilterMenu } from './modules/init-filters-menu';
 import { initSortFilter } from './modules/sort-filter';
+import { fetchProducts } from './modules/products';
 
 // ---------------------------------
 
@@ -26,6 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initModals();
     initFilterMenu();
     initSortFilter();
+    fetchProducts();
   });
 });
 

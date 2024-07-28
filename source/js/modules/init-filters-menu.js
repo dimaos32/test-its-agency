@@ -1,10 +1,12 @@
 import scrollLock from '../vendor/scroll-lock.min';
 import { FocusLock } from '../utils/focus-lock';
+import { updateProductList } from './products';
 
 const breakpoint = window.matchMedia('(min-width: 768px)');
 
 const filters = document.querySelector('.catalog__filters');
 const openBtn = document.querySelector('.catalog__filters-open-btn');
+const filtersEl = filters.querySelector('.catalog__filters-wrapper');
 
 const initFilterMenu = () => {
   if (!filters || !openBtn) {
@@ -17,18 +19,18 @@ const initFilterMenu = () => {
   const wrapper = filters.querySelector('.catalog__filters-wrapper');
 
   const onOverlayClick = () => {
-    closeMenu();
+    closeFiltersMenu();
   };
 
   const onEscPress = (evt) => {
     if (evt.key === 'Escape' || evt.key === 'Esc') {
       evt.preventDefault();
 
-      closeMenu();
+      closeFiltersMenu();
     }
   };
 
-  const openMenu = () => {
+  const openFiltersMenu = () => {
     filters.classList.add('is-opened');
 
     focusLock.lock('.main-nav', false);
@@ -38,7 +40,7 @@ const initFilterMenu = () => {
     document.addEventListener('keydown', onEscPress);
   };
 
-  const closeMenu = () => {
+  const closeFiltersMenu = () => {
     filters.classList.remove('is-opened');
 
     focusLock.unlock(false);
@@ -51,7 +53,7 @@ const initFilterMenu = () => {
   const breakpointChecker = () => {
     if (breakpoint.matches) {
       if (filters.classList.contains('is-opened')) {
-        closeMenu();
+        closeFiltersMenu();
       }
     } else {
       overlay.style.transition = 'none';
@@ -64,10 +66,21 @@ const initFilterMenu = () => {
     }
   };
 
+  const onFiltersChange = ({ target }) => {
+    const currentFilterInput = target.closest('.filter-checkbox__input');
+
+    if (!currentFilterInput) {
+      return;
+    }
+
+    updateProductList();
+  };
+
   breakpointChecker();
   breakpoint.addListener(breakpointChecker);
 
-  openBtn.addEventListener('click', openMenu);
+  openBtn.addEventListener('click', openFiltersMenu);
+  filtersEl.addEventListener('change', onFiltersChange);
 };
 
 export { initFilterMenu };

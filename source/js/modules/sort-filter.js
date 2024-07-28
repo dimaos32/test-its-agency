@@ -1,3 +1,5 @@
+import { updateProductList } from './products';
+
 const SHIFT_Y = -16; // px
 
 const breakpoint = window.matchMedia('(min-width: 1024px)');
@@ -22,6 +24,8 @@ const initSortFilter = () => {
     if (!currentFilterInput) {
       return;
     }
+
+    updateProductList();
 
     const currentFilter = currentFilterInput.closest('.sort-filter__radio');
     const currentFilterLabel = currentFilter.querySelector('.sort-filter__label');
