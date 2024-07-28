@@ -1,7 +1,10 @@
 import { mobileVhFix } from './utils/mobile-vh-fix';
 import { initMenu } from './modules/init-menu';
-import { initModals } from './modules/modals/init-modals';
 import { initHeroSlider } from './modules/hero-slider';
+
+import { initModals } from './modules/modals/init-modals';
+import { initFilterMenu } from './modules/init-filters-menu';
+import { initSortFilter } from './modules/sort-filter';
 
 // ---------------------------------
 
@@ -21,6 +24,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
     initModals();
+    initFilterMenu();
+    initSortFilter();
   });
 });
 

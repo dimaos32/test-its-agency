@@ -1,0 +1,5 @@
+mixin filter-checkbox({ name, value, label, isChecked= false })
+
+  label.filter-checkbox
+    input.filter-checkbox__input(type= "checkbox", name= name, value= value, checked= isChecked)
+    span.filter-checkbox__label= label

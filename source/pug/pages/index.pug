@@ -29,5 +29,8 @@ block main
     //- все блоки вставляются из папки pug/components/blocks
     +breadcrumbs().breadcrumbs--on-hero
     +hero()
+    +catalog()
 
-block modals
+append modals
+  +modal("modal--sort-filter modal--no-scale")(data-modal="sort-filter")
+    +modal-sort-filter()

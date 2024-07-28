@@ -1,4 +1,5 @@
-import {Modals} from './modals';
+import { Modals } from './modals';
+import { setSortFilterListPosition } from '../sort-filter';
 
 let modals;
 
@@ -24,6 +25,9 @@ const settings = {
     openCallback: false,
     closeCallback: false,
   },
+  'sort-filter': {
+    openCallback: setSortFilterListPosition,
+  },
 };
 
 const initModals = () => {
@@ -41,4 +45,4 @@ const initModals = () => {
   window.modals = modals;
 };
 
-export {modals, initModals};
+export { modals, initModals };

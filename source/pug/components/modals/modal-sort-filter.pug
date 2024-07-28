@@ -1,0 +1,34 @@
+mixin modal-sort-filter()
+
+  -
+    const filters = [
+      {
+        name: "sort-filter",
+        value: "first-expensive",
+        label: "Сначала дорогие",
+        isChecked: true,
+      },
+      {
+        name: "sort-filter",
+        value: "first-inexpensive",
+        label: "Сначала недорогие",
+      },
+      {
+        name: "sort-filter",
+        value: "first-popular",
+        label: "Сначала популярные",
+      },
+      {
+        name: "sort-filter",
+        value: "first-new",
+        label: "Сначала новые",
+      },
+    ]
+
+  ul.sort-filter__list(data-close-modal)
+    each filter in filters
+      li.sort-filter__filter-item
+        - const { name, value, label, isChecked= false } = filter
+        label.sort-filter__radio
+          input.sort-filter__input.visually-hidden(type= "radio", name= name, value= value, checked= isChecked)
+          span.sort-filter__label= label

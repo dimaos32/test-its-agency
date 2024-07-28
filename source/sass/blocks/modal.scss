@@ -11,7 +11,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
-  background-color: rgba($color-default-black, 0.8);
+  background-color: rgba($color-default-black, 0.7);
   transform: scale(1.2);
   visibility: hidden;
   opacity: 0;
@@ -25,68 +25,6 @@
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  &__wrapper {
-    position: relative;
-
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100%;
-    padding: 60px 40px;
-
-    @include vp-767 {
-      padding: 60px 16px;
-    }
-  }
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    cursor: pointer;
-  }
-
-  &__content {
-    position: relative;
-
-    width: 600px;
-    padding: 40px;
-
-    background-color: $color-default-white;
-
-    @include vp-767 {
-      width: 100%;
-      padding: 20px;
-    }
-  }
-
-  &__close-btn {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    z-index: 1;
-
-    width: 40px;
-    height: 40px;
-    padding: 0;
-
-    background: $color-transparent;
-    border: none;
-    cursor: pointer;
-
-    transition: opacity $trans-default;
-
-    @include hover-focus {
-      opacity: 0.5;
-    }
   }
 
   &--responsive {
@@ -119,5 +57,114 @@
     opacity: 1;
 
     pointer-events: auto;
+  }
+}
+
+.modal__wrapper {
+  position: relative;
+
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  /* stylelint-disable-next-line */
+  min-height: calc(100 * var(--vh, 1vh));
+  padding: 60px 40px;
+
+  @include vp-767 {
+    padding: 60px 16px;
+  }
+
+  .modal--sort-filter & {
+    @include vp-767 {
+      --padding-top: 320px;
+
+      padding: 0;
+      padding-top: var(--padding-top);
+    }
+
+    @include vp-374 {
+      --padding-top: 160px;
+    }
+  }
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+}
+
+.modal__content {
+  position: relative;
+
+  width: 600px;
+  padding: 40px;
+
+  background-color: $color-default-white;
+
+  @include vp-767 {
+    width: 100%;
+    padding: 20px;
+
+    transform: translateY(100%);
+
+    transition: transform $trans-default;
+
+    .modal.is-active & {
+      transform: translateY(0);
+    }
+  }
+
+  .modal--sort-filter & {
+    position: fixed;
+
+    width: 240px;
+    padding: 0;
+
+    @include vp-767 {
+      position: relative;
+
+      width: 100%;
+      min-height: calc(100vh - var(--padding-top));
+      /* stylelint-disable-next-line */
+      min-height: calc(100 * var(--vh, 1vh) - var(--padding-top));
+
+      padding: 54px 0;
+
+      border-radius: 24px 24px 0 0;
+    }
+  }
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 1;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  background: red;
+  border: none;
+  cursor: pointer;
+
+  transition: opacity $trans-default;
+
+  @include hover-focus {
+    opacity: 0.5;
+  }
+
+  .modal--sort-filter & {
+    display: none;
   }
 }

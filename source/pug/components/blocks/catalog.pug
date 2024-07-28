@@ -1,0 +1,56 @@
+mixin catalog
+
+  -
+    const filters = [
+      {
+        name: "filter",
+        value: "is-new",
+        label: "Новинки",
+        isChecked: true,
+      },
+      {
+        name: "filter",
+        value: "is-in-stock",
+        label: "Есть в наличии",
+      },
+      {
+        name: "filter",
+        value: "is-contract",
+        label: "Контрактные",
+      },
+      {
+        name: "filter",
+        value: "isExclusive",
+        label: "Эксклюзивные",
+      },
+      {
+        name: "filter",
+        value: "isOnSale",
+        label: "Распродажа",
+      },
+    ]
+
+  section.catalog
+    .container
+      h1.catalog__title Краски
+      .catalog__wrapper
+        .catalog__filters
+          .catalog__filters-overlay
+          .catalog__filters-wrapper
+            ul.catalog__filter-list
+              each filter in filters
+                li.catalog__filter-item
+                  +filter-checkbox(filter)
+        .catalog__header
+          p.catalog__total-products
+            output 412
+            |
+            | товаров
+          +link({ text: "Фильтры" }).catalog__filters-open-btn
+          +link({ text: "Сначала дорогие" }).catalog__sort-filter(data-open-modal="sort-filter")
+        - let count = 0;
+        ul.catalog__product-list
+          while count < 10
+            li.catalog__product-item
+              - count += 1;
+              .catalog__product-phantom
