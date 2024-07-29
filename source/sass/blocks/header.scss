@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+  z-index: 50;
   background-color: $color-default-white;
 }
 
@@ -30,7 +32,7 @@
   width: 131px;
   height: 26px;
 
-  @include vp-374 {
+  @include vp-413 {
     width: 99px;
     height: 21px;
   }
@@ -52,8 +54,4 @@
     flex-grow: 0;
     margin-left: -8px;
   }
-}
-
-.header__cart-btn {
-  margin-right: -8px;
 }

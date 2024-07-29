@@ -1,6 +1,6 @@
 import scrollLock from '../vendor/scroll-lock.min';
 import { FocusLock } from '../utils/focus-lock';
-import { updateProductList } from './products';
+import { updateProductList } from './data';
 
 const breakpoint = window.matchMedia('(min-width: 768px)');
 

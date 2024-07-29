@@ -13,5 +13,4 @@ mixin header(headerMods, currentUrl)
           a.header__logo(href="index.html", aria-label="Переход на главную")
             +img(...logoImg).header__logo-img
         +main-nav().header__main-nav
-        +btn({mods: "icon-cart"}).header__cart-btn
-          span 0
+        +cart().header__cart

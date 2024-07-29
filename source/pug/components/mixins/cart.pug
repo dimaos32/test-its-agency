@@ -1,0 +1,22 @@
+mixin cart
+
+  .cart&attributes(attributes)
+    +btn({mods: "icon-cart"}).cart__open-btn
+      output 0
+    .cart__overlay
+    .cart__wrapper
+      .cart__header
+        h2.cart__title Корзина
+        +btn({ mods: "icon" }).close-btn.cart__close-btn
+      .cart__list-title.is-hidden
+        p.cart__total-products 4 товара
+        +link({ text: "Очистить список" }).cart__clear-btn
+      ul.cart__list
+        li.cart__list-message Вы ничего не добавили в корзину
+      .cart__footer.is-hidden
+        .cart__total
+          p.cart__total-descr Итого
+          p.cart__total-price
+            output 14 400
+            | ₽
+        +btn({ text: "Оформить заказ" }).cart__checkout-btn

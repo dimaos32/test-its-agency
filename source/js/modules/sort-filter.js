@@ -1,4 +1,4 @@
-import { updateProductList } from './products';
+import { updateProductList } from './data';
 
 const SHIFT_Y = -16; // px
 

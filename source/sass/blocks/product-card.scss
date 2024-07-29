@@ -45,7 +45,7 @@
   line-height: 1;
 }
 
-.product-card__btn {
+.product-card__add-to-cart-btn {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -85,9 +85,17 @@
     height: 14px;
   }
 
+  &:disabled {
+    opacity: 0;
+  }
+
   .product-card:hover &,
   .product-card:focus-within & {
     opacity: 1;
+
+    &:disabled {
+      opacity: 0.3;
+    }
   }
 
   @include hover-focus {

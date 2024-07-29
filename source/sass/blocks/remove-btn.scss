@@ -1,0 +1,41 @@
+.remove-btn {
+  position: relative;
+
+  width: 24px;
+  height: 24px;
+
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 24px;
+    height: 2px;
+
+    background-color: $color-light-grey;
+
+    transition:
+      background-color $trans-default,
+      box-shadow $trans-default;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  @include hover-focus {
+    /* stylelint-disable-next-line */
+
+    &::before,
+    &::after {
+      background-color: $color-padua;
+    }
+  }
+}

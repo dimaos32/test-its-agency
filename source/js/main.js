@@ -1,11 +1,12 @@
 import { mobileVhFix } from './utils/mobile-vh-fix';
-import { initMenu } from './modules/init-menu';
+import { initMenu } from './modules/menu';
 import { initHeroSlider } from './modules/hero-slider';
 
 import { initModals } from './modules/modals/init-modals';
-import { initFilterMenu } from './modules/init-filters-menu';
+import { initFilterMenu } from './modules/filters-menu';
 import { initSortFilter } from './modules/sort-filter';
-import { fetchProducts } from './modules/products';
+import { fetchProducts, fetchСart } from './modules/data';
+import { initCart } from './modules/cart';
 
 // ---------------------------------
 
@@ -28,6 +29,8 @@ window.addEventListener('DOMContentLoaded', () => {
     initFilterMenu();
     initSortFilter();
     fetchProducts();
+    fetchСart();
+    initCart();
   });
 });
 

@@ -85,7 +85,7 @@
       padding-top: var(--padding-top);
     }
 
-    @include vp-374 {
+    @include vp-413 {
       --padding-top: 160px;
     }
   }
@@ -154,7 +154,7 @@
   height: 40px;
   padding: 0;
 
-  background: red;
+  background: $color-padua;
   border: none;
   cursor: pointer;
 

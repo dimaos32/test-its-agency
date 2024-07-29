@@ -17,7 +17,6 @@ const initMenu = () => {
   const openBtn = nav.querySelector('.main-nav__open-menu-btn');
   const closeBtn = nav.querySelector('.main-nav__close-menu-btn');
 
-
   const onOverlayClick = () => {
     closeMenu();
   };
